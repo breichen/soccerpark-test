@@ -131854,7 +131854,7 @@ h.toString
 s=a.aC(t.Gk).r.f.geb()
 r=t.p
 q=A.hW(a,h.gOp(),B.tz,A.b([],r))
-p=A.lp(A.bf(12),A.fT("assets/pics/ball.jpg",i,B.kv,56,56),B.aL)
+p=A.lp(A.bf(12),A.fT("assets/pics/app_icon.png",i,B.kv,56,56),B.aL)
 o=A.a_("Soccerpark",i,i,i,A.aa().$3$color$fontSize$fontWeight(B.M,22,B.V),i,i)
 n=h.ga6O()
 m=j.gBs().length===0?"\u2026":j.gBs()
@@ -131898,7 +131898,7 @@ $1(a){return new A.Bt(null)},
 $S:755}
 A.aZr.prototype={
 $0(){var s=this.a.gBs()
-A.bCO(new A.aG(new A.V(8,8,8,8),A.lp(A.bf(12),A.fT("assets/pics/ball.jpg",null,B.kv,48,48),B.aL),null),"Soccerpark",s,this.b)},
+A.bCO(new A.aG(new A.V(8,8,8,8),A.lp(A.bf(12),A.fT("assets/pics/app_icon.png",null,B.kv,48,48),B.aL),null),"Soccerpark",s,this.b)},
 $S:0}
 A.hH.prototype={}
 A.hY.prototype={
