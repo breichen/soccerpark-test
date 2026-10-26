@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Testseite: nicht in Suchmaschinen aufnehmen -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Soccerpark App – Testversion</title>
+  <link rel="icon" href="img/icon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --green: #005005; --green-light: #E3EFE3; --text: #1f1f1f; --muted: #616161;
+            --bg: #fafafa; --card: #ffffff; --line: #e0e0e0; --warn-bg: #FFF4E5; --warn: #8A4B00; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Lato, system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; }
+    .hero { position: relative; height: 180px; background: url(img/hero.jpg) center / cover; }
+    .badge { position: absolute; left: 50%; bottom: -28px; transform: translateX(-50%);
+             background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 8px 16px; }
+    .badge img { height: 44px; display: block; }
+    main { max-width: 560px; margin: 0 auto; padding: 48px 16px 32px; }
+    h1 { color: var(--green); font-size: 26px; margin: 0 0 4px; text-align: center; }
+    .sub { color: var(--muted); text-align: center; margin: 0 0 20px; }
+    .note { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 10px 14px; font-size: 14px; margin-bottom: 20px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--green); color: #fff;
+           text-decoration: none; font-weight: 700; font-size: 18px; padding: 14px; border-radius: 14px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-top: 20px; }
+    .card h2 { color: var(--green); font-size: 17px; margin: 0 0 8px; }
+    .card ol { margin: 0; padding-left: 20px; }
+    .qr { display: flex; gap: 16px; align-items: center; }
+    #qrcode { flex: none; background: #fff; padding: 6px; border: 1px solid var(--line); border-radius: 8px; }
+    .qr p { margin: 0; color: var(--muted); font-size: 14px; }
+    code { background: var(--green-light); color: var(--green); padding: 1px 6px; border-radius: 6px; word-break: break-all; }
+    footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 28px; }
+    @media (max-width: 420px) { .qr { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+  <div class="hero"><div class="badge"><img src="img/logo.png" alt="Soccerpark"></div></div>
+  <main>
+    <h1>Soccerpark App</h1>
+    <p class="sub">Testversion für Fußballgolf</p>
+
+    <div class="note">Das ist eine nicht öffentliche Testversion. Bitte den Link nur an Testerinnen und Tester weitergeben.</div>
+
+    <a class="btn" href="app/"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>App öffnen</a>
+
+    <div class="card">
+      <h2>Auf dem Handy installieren</h2>
+      <ol>
+        <li><strong>Android (Chrome):</strong> App öffnen → Menü ⋮ → „App installieren“ bzw. „Zum Startbildschirm hinzufügen“</li>
+        <li><strong>iPhone (Safari):</strong> App öffnen → Teilen-Symbol → „Zum Home-Bildschirm“</li>
+      </ol>
+    </div>
+
+    <div class="card qr" id="qrcard">
+      <div id="qrcode"></div>
+      <p>Am PC? Einfach diesen Code mit der Handykamera scannen, um die App direkt am Handy zu öffnen.</p>
+    </div>
+
+    <div class="card">
+      <h2>Was testen?</h2>
+      <ol>
+        <li>Anlage wählen und eine Runde mit 1–5 Personen spielen</li>
+        <li>Schläge Bahn für Bahn eintragen und die Runde abschließen</li>
+        <li>Bestenlisten ansehen: Heute, Monatswertung, eure Top 10</li>
+        <li>Fehler oder Ideen über „Über die App → Fehler melden“ schicken</li>
+      </ol>
+    </div>
+
+    <footer>App-Adresse: <code id="appurl"></code></footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    var appUrl = new URL('app/', location.href).href;
+    document.getElementById('appurl').textContent = appUrl;
+    if (window.QRCode) {
+      new QRCode(document.getElementById('qrcode'), { text: appUrl, width: 120, height: 120, colorDark: '#005005' });
+    } else {
+      // QR-Bibliothek nicht geladen (offline): Karte ausblenden.
+      document.getElementById('qrcard').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
